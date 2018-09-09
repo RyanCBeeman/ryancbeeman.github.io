@@ -6,6 +6,10 @@ var tickSpeed = 1000
 var intervalID = window.setInterval(tick, tickSpeed);
 var intervalID = window.setInterval(update, 5);
 
+
+var notificationDisplay = document.getElementById("notificationDisplay");
+var notificationArray = ["","","","",""]//array to hold notificaion messages
+
 function buttonPress() {
   num++;
 }
@@ -16,7 +20,7 @@ function buyIncrementer(){
   }else{
     num-=10;
     numIncrementers++;
-    boughtMessage(1);
+    notify("Bought Incrementer!");
   }
 }
 
@@ -26,7 +30,7 @@ function buyIncrementer2(){
   }else{
     num-=50;
     numIncrementers2++;
-    boughtMessage(2);
+    notify("Bought Incrementer 2.0!");
   }
 }
 
@@ -36,7 +40,7 @@ function buyIncrementer3(){
   }else{
     num-=200;
     numIncrementers3++;
-    boughtMessage(3);
+    notify("Bought Incrementer 3.0!");
   }
 }
 
@@ -47,23 +51,35 @@ function buyTickSpeed(){
     num-=1000;
     tickSpeed*=0.8;
     window.setInterval(tick, tickSpeed);
-    document.getElementById("notificationDisplay").innerHTML = "Tick speed reduced by 20% !";
+    notify("Tick Speed Reduced By 20% !");
   }
 }
 
-function boughtMessage(tier){
-  document.getElementById("notificationDisplay").innerHTML = "Incrementer " + tier + ".0 bought!";
+function cheat(){
+  num+=1000;
+}
+
+function notify(message){
+  notificationArray.unshift(message);
+  notificationArray.pop();
 }
 
 function notEnoughMessage(){
-  document.getElementById("notificationDisplay").innerHTML = "You don't have enough!";
+  notificationArray.unshift("Not Enough!");
+  notificationArray.pop();
 }
 
-function tick() {
+
+function showNotifications(){
+  notificationDisplay.innerHTML = notificationArray.join("<br>");
+}
+
+function tick(){
 numIncrementers2+=numIncrementers3;
 numIncrementers+=numIncrementers2;
 num+=numIncrementers;
 }
+
 
 function update(){
 document.getElementById("tickSpeedDisplay").innerHTML = "Current tick speed is " + (tickSpeed/1000).toFixed(5) + " S"
@@ -71,6 +87,7 @@ document.getElementById("display").innerHTML = "You have " + num;
 document.getElementById("incrementerDisplay").innerHTML = "You have " + numIncrementers + " incrementers.";
 document.getElementById("incrementerDisplay2").innerHTML = "You have " + numIncrementers2 + " incrementers 2.0."
 document.getElementById("incrementerDisplay3").innerHTML = "You have " + numIncrementers3 + " incrementers 3.0."
+showNotifications();
 }
 
 function localSave(){

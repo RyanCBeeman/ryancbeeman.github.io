@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-<h2>My Game</h2>
+	<h1>My Game</h1>
 
 
-
-<p id="tickSpeedDisplay"></p>
-<button type="button" onclick="buttonPress()"> Click me! </button>
+	<p id="tickSpeedDisplay"></p>
+	<button type="button" onclick="buttonPress()"> Click me! </button>
 <p id="display"></p> <!-- This is where the number is displayed -->
 <button type="button" onclick="buyIncrementer()"> Buy an Incrementer (10)</button>
-<label id="incrementerDisplay"></label>
+<label id="incrementerDisplay"></label><img src="images/GreenMonster.png" alt= "green monster">
 <br>
 <button type="button" onclick="buyIncrementer2()"> Buy an Incrementer 2.0 (50)</button>
 <label id="incrementerDisplay2"></label>
@@ -19,18 +19,21 @@
 <br>
 <button type="button" onclick="buyTickSpeed()"> Buy a tick speed boost (1000)</button>
 
-
-<p id="notificationDisplay"></p>
+<p id="notificationDisplay"><br></p>
 
 <hr>
 
-<button type="button" onclick="localSave()"> Save </button>
-<button type="button" onclick="localLoad()"> Load </button>
-<br><br>
-<button type="button" onclick="reset()" style="color:red"> Reset </button>
-<button type="button" onclick="hardReset()" style="background-color:red"> Hard Reset </button>
+<button type="button" onclick="cheat()"> Cheat (+1000)</button>
 
-<script src="/javascripts/scripts.js"> </script>
+<div style="position:fixed; bottom:0">
+  <button type="button" onclick="localSave()"> Save </button>
+  <button type="button" onclick="localLoad()"> Load </button>
+  <br><br>
+  <button type="button" onclick="reset()" style="color:red"> Reset </button>
+  <button type="button" onclick="hardReset()" style="background-color:red"> Hard Reset </button>
+</div>
+
+<script src="javascripts/scripts.js"> </script>
 
 </body>
 </html>
