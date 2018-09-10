@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1>Karma</h1>
+
+<button id="introButton" type="button" onclick="runIntroText()" style="background-color:grey"> </button>
+
+	<p id="tickSpeedDisplay"></p>
+	<button  id="plantButton" type="button" onclick="buttonPress()" style = "display:none"> Plant a seed </button>
+<p id="karmaDisplay"></p> <!-- This is where the karma is displayed -->
+<button type="button" onclick="buyIncrementer()"> Buy an Incrementer (10)</button>
+<label id="incrementerDisplay"></label><img src="https://i.imgur.com/lj3HC6x.png" alt= "Green Monster">
+<br>
+<button type="button" onclick="buyIncrementer2()"> Buy an Incrementer 2.0 (50)</button>
+<label id="incrementerDisplay2"></label>
+<br>
+<button type="button" onclick="buyIncrementer3()"> Buy an Incrementer 3.0 (200)</button>
+<label id="incrementerDisplay3"></label>
+<br>
+<button type="button" onclick="buyTickSpeed()"> Buy a tick speed boost (1000)</button>
+
+<p id="notificationDisplay"><br></p>
+
+<hr>
+
+<button type="button" onclick="cheat()"> Cheat (+1000)</button>
+
+<div style= "bottom:0">
+  <button type="button" onclick="localSave()"> Save </button>
+  <button type="button" onclick="localLoad()"> Load </button>
+  <br><br>
+  <button type="button" onclick="reset()" style="color:red"> Reset </button>
+  <button type="button" onclick="hardReset()" style="background-color:red"> Hard Reset </button>
+</div>
+
+<script src="javascripts/buttonScripts.js"></script>
+<script src="javascripts/gameIntro.js"></script>
+
+</body>
+</html>
