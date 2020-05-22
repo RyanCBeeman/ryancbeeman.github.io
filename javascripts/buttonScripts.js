@@ -4,8 +4,8 @@ var numIncrementers = 0;
 var numIncrementers2 = 0;
 var numIncrementers3 = 0;
 var tickSpeed = 1000
-var intervalID = window.setInterval(tick, tickSpeed);
-var intervalID = window.setInterval(update, 5);
+var intervalTick = window.setInterval(tick, tickSpeed);
+var intervalUpdate = window.setInterval(update, 5);
 
 //save displays as objects
 var tickSpeedDisplay = document.getElementById("tickSpeedDisplay")
@@ -58,7 +58,7 @@ function buyTickSpeed(){
   }else{
     karma-=1000;
     tickSpeed*=0.8;
-    window.setInterval(tick, tickSpeed);
+    intervalTick = window.setInterval(tick, tickSpeed);
     notify("Tick Speed Reduced By 20% !");
   }
 }
@@ -117,7 +117,8 @@ function reset(){
   karma = 0;
   numIncrementers = 0;
   numIncrementers2 = 0
-  savedNumIncrementers3 = 0;
+  numIncrementers3 = 0;
+  intervalTick = window.setInterval(tick,tickSpeed)
 }
 function hardReset(){
   tickSpeed = 1000;
