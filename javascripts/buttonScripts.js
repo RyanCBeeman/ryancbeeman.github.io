@@ -58,6 +58,7 @@ function buyTickSpeed(){
   }else{
     karma-=1000;
     tickSpeed*=0.8;
+    clearInterval(intervalTick)
     intervalTick = window.setInterval(tick, tickSpeed);
     notify("Tick Speed Reduced By 20% !");
   }
@@ -118,6 +119,7 @@ function reset(){
   numIncrementers = 0;
   numIncrementers2 = 0
   numIncrementers3 = 0;
+  clearInterval(intervalTick)
   intervalTick = window.setInterval(tick,tickSpeed)
 }
 function hardReset(){
