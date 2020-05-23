@@ -5,31 +5,44 @@ var currentIntroText = document.getElementById("introButton");
 currentIntroText.innerHTML = "You wake up";
 
 var introTextArray = [
-  "It sucks here",
+  "It sucks here", //1
+  "The land is scorched and desolate",
   "You are angry",
-  "You kick a rock",
+  "Kick a rock",
   "It breaks a plant",
-  "There aren't many of those left",
+  "There aren't many of those left", //5
   "You feel bad",
-  "You plant a seed",
+  "You find a small seed",
+  "Plant the seed",
   "It's a little better here"
 ];
 
 function runIntroText(){
   currentIntroText.innerHTML = introTextArray[introPos];
+  notify(introTextArray[introPos-1])
   switch(introPos) {
-    case 3:
+    case 0:
+        notify("You wake up");
+        break
+    case 4:
         karma-=5;
         break;
-    case 4:
+    case 5:
         karma-=10
         break;
-    case 7:
+    case 8:
+        storedSeeds++;
+        document.getElementById("seedDisplay").style.display = "inline-block";
+        break;
+    case 9:
+        storedSeeds--;
         karma++;
         break;
-    case 8:
+    case 10:
+        notify("It's a little better here");
         currentIntroText.style.display = "none";
-        document.getElementById("plantButton").style.display = "inline-block";
+        document.getElementById("plantSeedsButton").style.display = "inline-block";
+        document.getElementById("gatherSeedsButton").style.display = "inline-block";
     default:
         break;
 }

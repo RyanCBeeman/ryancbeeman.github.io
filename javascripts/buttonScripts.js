@@ -1,25 +1,38 @@
 //create and set initial variables
 var karma = 0;
+var storedSeeds = 0;
+var seedStorageSpace = 10;
+
 var numIncrementers = 0;
 var numIncrementers2 = 0;
 var numIncrementers3 = 0;
-var tickSpeed = 1000
+var tickSpeed = 1000;
 var intervalTick = window.setInterval(tick, tickSpeed);
 var intervalUpdate = window.setInterval(update, 5);
 
 //save displays as objects
-var tickSpeedDisplay = document.getElementById("tickSpeedDisplay")
 var karmaDisplay = document.getElementById("karmaDisplay");
+var seedDisplay = document.getElementById("seedDisplay");
+var upgradeTable = document.getElementById("upgradeTable")
 var incrementDisplay = document.getElementById("incrementerDisplay");
-var incrementDisplay2 = document.getElementById("incrementerDisplay2")
-var incrementDisplay3 = document.getElementById("incrementerDisplay3")
+var incrementDisplay2 = document.getElementById("incrementerDisplay2");
+var incrementDisplay3 = document.getElementById("incrementerDisplay3");
 var notificationDisplay = document.getElementById("notificationDisplay");
-var notificationArray = ["","","","",""]//array to hold notificaion messages
+var notificationArray = ["","","","","","","",""]; //array to hold notificaion messages
 
 
 //button functions
-function buttonPress() {
-  karma++;
+function plantSeeds() {
+  if (storedSeeds>0) {
+    storedSeeds--;
+    karma++;
+  }
+}
+
+function gatherSeeds() {
+  if (storedSeeds<seedStorageSpace) {
+    storedSeeds++;
+  }
 }
 
 function buyIncrementer(){
@@ -52,18 +65,6 @@ function buyIncrementer3(){
   }
 }
 
-function buyTickSpeed(){
-  if (karma<1000){
-    notEnoughMessage()
-  }else{
-    karma-=1000;
-    tickSpeed*=0.8;
-    clearInterval(intervalTick)
-    intervalTick = window.setInterval(tick, tickSpeed);
-    notify("Tick Speed Reduced By 20% !");
-  }
-}
-
 function cheat(){
   karma+=1000;
 }
@@ -83,19 +84,25 @@ function showNotifications(){
 }
 
 function tick(){
-numIncrementers2+=numIncrementers3;
-numIncrementers+=numIncrementers2;
-karma+=numIncrementers;
+  numIncrementers2+=numIncrementers3;
+  numIncrementers+=numIncrementers2;
+  karma+=numIncrementers;
 }
 
-
 function update(){
-tickSpeedDisplay.innerHTML = "Current tick speed is " + (tickSpeed/1000).toFixed(5) + " S"
-karmaDisplay.innerHTML = "You have " + karma + " Karma";
-incrementDisplay.innerHTML = "You have " + numIncrementers + " incrementers.";
-incrementDisplay2.innerHTML = "You have " + numIncrementers2 + " incrementers 2.0."
-incrementDisplay3.innerHTML = "You have " + numIncrementers3 + " incrementers 3.0."
-showNotifications();
+  karmaDisplay.innerHTML = "You have " + karma + " Karma";
+  seedDisplay.innerHTML = storedSeeds + "/" + seedStorageSpace + " seeds.";
+  incrementDisplay.innerHTML = "You have " + numIncrementers + " incrementers.";
+  incrementDisplay2.innerHTML = "You have " + numIncrementers2 + " incrementers 2.0.";
+  incrementDisplay3.innerHTML = "You have " + numIncrementers3 + " incrementers 3.0.";
+  showNotifications();
+  checkForChanges();
+}
+
+function checkForChanges(){
+  if(karma==10){
+      upgradeTable.style.display = "inline-block";
+  }
 }
 
 function localSave(){
