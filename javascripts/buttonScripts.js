@@ -123,14 +123,10 @@ function reset(){
   intervalTick = window.setInterval(tick,tickSpeed)
 }
 function hardReset(){
-  tickSpeed = 1000;
-  karma = 0;
-  numIncrementers = 0;
-  numIncrementers2 = 0
-  savedNumIncrementers3 = 0;
   localStorage.setItem("savedTickSpeed", 1000);
   localStorage.setItem("savedKarma", 0);
   localStorage.setItem("savedNumIncrementers", 0);
   localStorage.setItem("savedNumIncrementers2", 0);
   localStorage.setItem("savedNumIncrementers3", 0);
+  reset()
 }
