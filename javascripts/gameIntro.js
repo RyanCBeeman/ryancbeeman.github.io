@@ -17,6 +17,15 @@ var introTextArray = [
   "It's a little better here"
 ];
 
+function skipIntro(){
+  document.getElementById("plantSeedsButton").style.display = "inline-block";
+  document.getElementById("gatherSeedsButton").style.display = "inline-block";
+  document.getElementById("seedDisplay").style.display = "inline-block";
+  currentIntroText.style.display = "none";
+  player.karma = 100;
+  player.seeds[plantData.Banksia.id] = 1;
+}
+
 function runIntroText(){
   currentIntroText.innerHTML = introTextArray[introPos];
   notify(introTextArray[introPos-1])
