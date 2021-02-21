@@ -17,36 +17,44 @@ const plantData = {
 
 	*/
 
-	BanksiaId: 0,
-	PineId: 1,
-	DandelionId: 2,
+	Banksia: new Plant(
+		'Banksia',
+		0,
+		true,
+		true,
+		50,
+		30,
+		'Large shrub...',
+		'This plant is found in Australia... Fire allows it to spread its seeds...'
+		),
 
-	name: ['Banksia','Pine','Dandelion'],
+	Pine: new Plant(
+		'Pine',
+		1,
+		true,
+		true,
+		50,
+		120,
+		'Pine Tree',
+		'Average size is...'
+		),
+
+	Dandelion: new Plant(
+		'Dandelion',
+		2,
+		false,
+		false,
+		5,
+		30,
+		'Pretty flower...',
+		'My favorite flower'
+		),
+
+	seedFindRate: [50,50,5],
 	unlocked: [1,1,0],
 	canFindSeed: [1,1,0],
-	seedFindRate: [50,50,5], // proprtional to others
 	seedFindTotal: 0,
-	growTime: [30,60,20], // in seconds
-	description: ['Large shrub...',
-				  'Coniferous tree...',
-				  'Pretty flower...'],
 
-	information: ["This plant is found in Austrialo... Fire allows it to spread its seeds...",
-				  "Average size is...",
-				  "My favorite flower..."],
-
-	updateUnlocked: function(idNum, newVal){
-		this.unlocked(idNum) = newVal;
-	},
-	updateCanFindSeed: function(idNum, newVal){
-		this.canFindSeed(idNum) = newVal;
-	},
-	updateSeedFindRate: function(idNum, newVal){
-		this.seedFindRate(idNum) = newVal;
-	},
-	updateGrowRate: function(idNum, newVal){
-		this.growRate(idNum) = newVal;
-	},	
 	updateSeedFindTotal: function() {
 		s = 0;
 		for (i = 0; i < this.unlocked.length; i++) {

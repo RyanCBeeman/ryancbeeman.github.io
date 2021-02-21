@@ -9,6 +9,9 @@ const player = {
 
 	totalSeeds: 0,
 	seedStorageSpace: 10,
+	
+	wildLand: 100,
+	land: 10,
 
 	plantsGrowing: [0,0,0],
 	plantsGrown: [0,0,0],

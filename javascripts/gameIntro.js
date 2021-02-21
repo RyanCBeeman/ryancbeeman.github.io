@@ -23,7 +23,7 @@ function skipIntro(){
   document.getElementById("seedDisplay").style.display = "inline-block";
   currentIntroText.style.display = "none";
   player.karma = 100;
-  player.seeds[plantData.Banksia.id] = 1;
+  player.seeds[plantData.BanksiaId] = 1;
 }
 
 function runIntroText(){
