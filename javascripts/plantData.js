@@ -1,15 +1,4 @@
 
-function Plant(name, id, unlocked, canFindSeed, seedFindRate, growRate, description, information){
-	this.name = name;
-	this.id = id;	//position in seeds array
-	this.unlocked = unlocked;
-	this.canFindSeed = canFindSeed;
-	this.seedFindRate = seedFindRate; 	//as percentage
-	this.growRate = growRate;			//time to maturity in seconds
-	this.description = description;
-	this.information = information
-}
-
 const plantData = {
 	/*Add: 	Karma gained from growing
 			Karma lost when harvesting?? Probably not
@@ -27,6 +16,7 @@ const plantData = {
 	seedFindRate: [50,50,5], // proprtional to others
 	seedFindTotal: 0,
 	growTime: [30,60,20], // in seconds
+	seedsHarvested: [3,3,1],
 	description: ['Large shrub...',
 				  'Coniferous tree...',
 				  'Pretty flower...'],

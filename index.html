@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css">
+<head>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h1>Karma</h1>
+  <main>
+    <div id="header">
+    	<h1>Karma</h1>
+      <p id="karmaDisplay"></p>
+      <div id="tabs">
+        <p id="plantsTab" class="tab" onclick="changeTab('plants')"> Plants </p>
+        <p id="smartsTab" class="tab" onclick="changeTab('smarts')"> Smarts </p>
+      </div>
+    </div>
 
-  <p id="karmaDisplay"></p>
-  <br>
+    <br>
+    <div id="plants" style="display:inline-block">
+      <!-- <button id="introButton" type="button" onclick="runIntroText()" style="background-color:grey"> </button> -->
+      <button id="introButton" type="button" onclick="skipIntro()" style="background-color:grey"> </button>
+    	<button id="plantSeedsButton" type="button" onclick="plantSeed()" style = "display:none"> Plant a seed </button>
+      <button id="gatherSeedsButton" type="button" onclick="gatherSeed()" style = "display:none"> Gather seeds </button>
+      <br>
 
-  <!-- <button id="introButton" type="button" onclick="runIntroText()" style="background-color:grey"> </button> -->
-  <button id="introButton" type="button" onclick="skipIntro()" style="background-color:grey"> </button>
-	<button  id="plantSeedsButton" type="button" onclick="plantSeed()" style = "display:none"> Plant a seed </button>
-  <button  id="gatherSeedsButton" type="button" onclick="gatherSeed()" style = "display:none"> Gather seeds </button>
-  <br>
-
-  <p id="seedDisplay" style="display:none"></p>
-  <br>
-
-
-  <table id="plantsTable" style="display:none">
-      <tr>
-        <td>
-          <button type="button" onclick="waterPlant()"> Water a plant</button>
-          <label id="plantsGrowingDisplay"></label> <img src="https://i.imgur.com/lj3HC6x.png" alt= "Green Monster">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" onclick="harvestPlant()"> Harvest a plant</button>
-          <label id="plantsGrownDisplay"></label>
-        </td>
-      </tr>
-  </table>
-  <br>
-
-  <p id="notificationDisplay"><br></p>
-  <hr>
-
-  <button type="button" onclick="cheat()"> Cheat (+1000)</button>
-
-  <div style= "bottom:0">
-    <button type="button" onclick="localSave()"> Save </button>
-    <button type="button" onclick="localLoad()"> Load </button>
-    <br><br>
-    <button type="button" onclick="reset()" style="color:red"> Reset </button>
-    <button type="button" onclick="hardReset()" style="background-color:red"> Hard Reset </button>
-  </div>
-
-  <script src="Karma.js"></script>
-  <script src="javascripts/plantData.js"></script>
-  <script src="javascripts/plants.js"></script>
-  <script src="javascripts/updateGame.js"></script>
-  <script src="javascripts/displayVars.js"></script>
-  <script src="javascripts/settingsButtons.js"></script>
-  <script src="javascripts/gameIntro.js"></script>
+      <p id="seedDisplay" style="display:none"></p> <img src="https://i.imgur.com/lj3HC6x.png" alt= "Green Monster">
+      <br>
 
 
+      <table id="plantsTable" style="display:none">
+          <tr>
+            <td>
+              <button type="button" onclick="waterPlant()"> Water a plant</button>
+              <label id="seedsPlantedDisplay">
+            </td>
+          </tr>    
+          <tr>
+            <td>
+              <label id="plantsGrowingDisplay"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" onclick="harvestPlant()"> Harvest a plant</button>
+              <label id="plantsGrownDisplay"></label>
+            </td>
+          </tr>
+      </table>
+      <br>
+
+      <p id="notificationDisplay"><br></p>
+      <hr>
+
+      <button type="button" onclick="cheat()"> Cheat (+1000)</button>
+
+      <div style= "bottom:0">
+        <button type="button" onclick="localSave()"> Save </button>
+        <button type="button" onclick="localLoad()"> Load </button>
+        <br><br>
+        <button type="button" onclick="reset()" style="color:red"> Reset </button>
+        <button type="button" onclick="hardReset()" style="background-color:red"> Hard Reset </button>
+      </div>
+    </div>
+
+    <div id="smarts" style="display:none">
+      <p id="smartsTest"> SMARTS </p>
+    </div>
+
+    <script src="Karma.js"></script>
+    <script src="javascripts/plantData.js"></script>
+    <script src="javascripts/plants.js"></script>
+    <script src="javascripts/updateGame.js"></script>
+    <script src="javascripts/displayVars.js"></script>
+    <script src="javascripts/settingsButtons.js"></script>
+    <script src="javascripts/gameIntro.js"></script>
+
+  </main>
 </body>
 </html>

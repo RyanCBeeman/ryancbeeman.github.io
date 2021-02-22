@@ -18,6 +18,7 @@ var introTextArray = [
 ];
 
 function skipIntro(){
+  plantsPageDisplay.style.display = "inline-block";
   document.getElementById("plantSeedsButton").style.display = "inline-block";
   document.getElementById("gatherSeedsButton").style.display = "inline-block";
   document.getElementById("seedDisplay").style.display = "inline-block";

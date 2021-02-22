@@ -6,7 +6,7 @@ function plantSeed() {
   }else{
     i = pickSeedToPlant();
     player.seeds[i]--;
-    player.plantsGrowing[i]++;
+    player.seedsPlanted[i]++;
     player.karma++;
   }
 }
@@ -31,7 +31,6 @@ function pickSeedToPlant(){
   return i;
 }
 
-
 function pickSeedToFind(){
   i = 0;
   x = Math.floor(Math.random()*plantData.seedFindTotal) + 1;
@@ -47,7 +46,7 @@ function pickSeedToFind(){
 
 function waterPlant(){
   i=0;
-  if(player.plantsGrowing[i] > 0){
+  if(player.seedsPlanted[i] > 0){
     beginGrowingPlant(i);
   }else{
     notify("No plant to water")
@@ -58,20 +57,24 @@ function harvestPlant(){
   i=0;
   if(player.plantsGrown[i] > 0){
       player.plantsGrown[i]--;
-      player.seeds[i]+=5;
+      s = plantData.seedsHarvested[i];
+      x = Math.min(s, player.seedStorageSpace-player.totalSeeds);
+      if (x < s){
+        y = s-x;
+        notify("dropped " + y + " seeds due to insufficient storage space");
+      }
+      player.seeds[i]+=x;
   }else{
     notify("No plant to water")
   }
-
-
 }
 
 function beginGrowingPlant(plantId){
-  //player.seeds[plantId]--;
-  //player.plantsGrowing[plantId]++;
-  t = plantData.growTime[plantId]*200; // convert seconds to miliseconds
+  player.seedsPlanted[plantId]--;
+  player.plantsGrowing[plantId]++;
+  t = plantData.growTime[plantId]*100; // convert seconds to miliseconds
   console.log(t);
-    setTimeout(()=>endGrowingPlant(plantId), t);
+    setTimeout(()=> endGrowingPlant(plantId), t);
 }
 
 function endGrowingPlant(plantId){

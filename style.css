@@ -26,3 +26,34 @@ label{
 img { 
     width: 10%; 
 }
+
+#karmaDisplay{
+  text-align: center;
+}
+
+.tab{
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 65px;
+  font-size: small;
+  border: 1.5px solid black;
+}
+
+#plantsTab {
+  background-color: green;
+  left: 50px;
+  z-index: 3;
+}
+
+#smartsTab {
+  background-color: DarkSlateBlue;
+  left: 110px;
+  z-index: 2;
+}
+
+#plants {
+  position: absolute;
+  top: 175px;
+}

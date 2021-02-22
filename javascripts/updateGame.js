@@ -26,10 +26,11 @@ function updateGame(){
 function updateDisplay(){
 	checkForChanges();
  	karmaDisplay.innerHTML = "You have " + player.karma + " Karma";
-  	seedDisplay.innerHTML = player.totalSeeds + "/" + player.seedStorageSpace + " seeds.";
-  	plantsGrowingDisplay.innerHTML = player.plantsGrowing + " are growing";
-  	plantsGrownDisplay.innerHTML = player.plantsGrown + " are grown";
-  	showNotifications();
+  seedDisplay.innerHTML = player.totalSeeds + "/" + player.seedStorageSpace + " seeds";
+  seedsPlantedDisplay.innerHTML = player.seedsPlanted + " seeds are planted";
+  plantsGrowingDisplay.innerHTML = player.plantsGrowing + " plants are growing";
+  plantsGrownDisplay.innerHTML = player.plantsGrown + " plants are grown";
+  showNotifications();
 }
 
 function checkForChanges(){
@@ -37,4 +38,32 @@ function checkForChanges(){
       plantsTable.style.display = "inline-block";
   }
 
+}
+
+
+function changeTab(newTab){
+  if(newTab!==player.currentTab){
+    player.currentTab=newTab;
+    clearDisplay();
+    switch(newTab){
+      case 'plants':
+        console.log('in plants tab');
+        plantsTabDisplay.style.zIndex="3";
+        smartsTabDisplay.style.zIndex="2";
+        plantsPageDisplay.style.display='inline-block';
+        break;
+      case 'smarts':
+        console.log('in smarts tab');
+        plantsTabDisplay.style.zIndex="2";
+        smartsTabDisplay.style.zIndex="3";
+        smartsPageDisplay.style.display='inline-block';
+        break;
+    }
+  }
+
+}
+
+function clearDisplay(){
+  plantsPageDisplay.style.display='none';
+  smartsPageDisplay.style.display='none';
 }
