@@ -22,6 +22,10 @@ const player = {
 			 0,	 //plants
 			 0], //harvesting
 
+	upgrades: [0,0,0, //seed upgrades
+			   0,0,0,
+			   0,0,0],
+
 	tickSpeed: 1000,
 	currentTab: 'plants'
 
