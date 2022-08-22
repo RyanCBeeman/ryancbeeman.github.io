@@ -23,11 +23,13 @@ label{
     color:white;
 }
 
-img { 
-    width: 10%; 
+#header{
+  position: fixed;
+  left:50%;
 }
 
 #karmaDisplay{
+
   text-align: center;
 }
 
@@ -41,19 +43,49 @@ img {
   border: 1.5px solid black;
 }
 
-#plantsTab {
+#plantsTab{
   background-color: green;
   left: 50px;
   z-index: 3;
 }
 
-#smartsTab {
+#skillsTab{
   background-color: DarkSlateBlue;
   left: 110px;
   z-index: 2;
 }
 
-#plants {
+.tabWindow{
+  position: relative;
+  top: 2rem;
+  left: 3rem;
+  border: solid; /*todo: remove border. this is for testing of element positions*/
+}
+
+#settingsDisplay{
   position: absolute;
-  top: 175px;
+  bottom: 0rem;
+}
+
+#skillTreeContainer{
+  position: fixed;
+  left: 50%;
+  top: 70%;
+}
+/*move these to a seperate css file*/
+#treePic {
+  position: relative;
+  left: 50%;
+  scale: 1;
+}
+
+#res1{
+  position: relative;
+  left: 38px;
+  bottom: 23px;
+}
+#res2{
+  position: relative;
+  left: 40px;
+  bottom: 130px;
 }

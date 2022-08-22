@@ -10,24 +10,24 @@
     	<h1>Karma</h1>
       <p id="karmaDisplay"></p>
       <div id="tabs">
-        <p id="plantsTab" class="tab" onclick="changeTab('plants')"> Plants </p>
-        <p id="smartsTab" class="tab" onclick="changeTab('smarts')"> Smarts </p>
+        <p id="plantsTab" class="tab plants"> Plants </p>
+        <p id="skillsTab" class="tab skills"> Skill Tree </p>
       </div>
     </div>
 
     <br>
-    <div id="plants" style="display:inline-block">
-      <!-- <button id="introButton" type="button" onclick="runIntroText()" style="background-color:grey"> </button> -->
-      <button id="introButton" type="button" onclick="skipIntro()" style="background-color:grey"> </button>
-    	<button id="plantSeedsButton" type="button" onclick="plantSeed()" style = "display:none"> Plant a seed </button>
-      <button id="gatherSeedsButton" type="button" onclick="gatherSeed()" style = "display:none"> Gather seeds </button>
+    <div id="plantsDisplay" class = "tabWindow plants" style="display:none">
+      <!--<button id="introButton" type="button" onclick="runIntroText()" style="background-color:grey"> </button> -->
+      <!--<button id="introButton" type="button" onclick="skipIntro()" style="background-color:grey"> </button> -->
+    	<button id="plantSeedsButton" type="button" onclick="plantSeed()"> Plant a seed </button>
+      <button id="gatherSeedsButton" type="button" onclick="gatherSeed()"> Gather seeds </button>
       <br>
 
-      <p id="seedDisplay" style="display:none"></p> <img src="https://i.imgur.com/lj3HC6x.png" alt= "Green Monster">
+      <p id="seedDisplay" class = "plants"></p> <img src="https://i.imgur.com/lj3HC6x.png" alt= "Green Monster">
       <br>
 
 
-      <table id="plantsTable" style="display:none">
+      <table id="plantsTable" class = "table plants">
           <tr>
             <td>
               <button type="button" onclick="waterPlant()"> Water a plant</button>
@@ -47,34 +47,54 @@
           </tr>
       </table>
       <br>
+    </div>
 
-      <p id="notificationDisplay"><br></p>
-      <hr>
 
-      <button type="button" onclick="cheat()"> Cheat (+1000)</button>
+    <div id="skillsDisplay" class = "tabWindow skills" style="display:inline-block">
+      <p id="skillsTest" style="display:inline-block"> SMARTS </p>
+      <br>
+      <button id = "growTreeButton" type="button" class = "skills">GROW</button>
+      <br>
+      <div id = "skillTreeContainer">
+          <img id = "treePic" src = "images/TreePics/tree_1.png" alt = "The Skill Tree">
+          <!--Put these in divs with a text box above with "purchased 1/3", etc.-->
+          <div id = "res1">
+            <label id = "res1Text"> 1/3</label>
+            <br>
+            <img id ="res1Btn" src = "images/UpgradePics/Down1.png">
+          </div>
+          <div id = "res2">
+            <label id = "res2Text">2/5</label>
+            <br>
+            <img id = "res2Btn" src = "images/UpgradePics/Right1.png">
+          </div>
 
-      <div style= "bottom:0">
-        <button type="button" onclick="localSave()"> Save </button>
-        <button type="button" onclick="localLoad()"> Load </button>
-        <br><br>
-        <button type="button" onclick="reset()" style="color:red"> Reset </button>
-        <button type="button" onclick="hardReset()" style="background-color:red"> Hard Reset </button>
+
       </div>
     </div>
 
-    <div id="smarts" style="display:none">
-      <p id="smartsTest"> SMARTS </p>
+
+    <div id = "settingsDisplay">
+      <hr>
+      <button id="cheatButton" type="button"> Cheat (+1000)</button>
+      <br>
+      <button  id="saveButton" type="button"> Save </button>
+      <button id="loadButton" type="button"> Load </button>
+      <br><br>
+      <button id="resetSaveButton" type="button" style="color:red"> Reset </button>
+      <button id="hardResetSaveButton" type="button" style="background-color:red"> Hard Reset </button>
     </div>
+  </div>
 
-    <script src="Karma.js"></script>
-    <script src="javascripts/plantData.js"></script>
-    <script src="javascripts/plants.js"></script>
-    <script src="javascripts/smarts.js"></script>
-    <script src="javascripts/updateGame.js"></script>
-    <script src="javascripts/displayVars.js"></script>
-    <script src="javascripts/settingsButtons.js"></script>
-    <script src="javascripts/gameIntro.js"></script>
-
+    <script src="Karma.js" defer></script>
+    <script src="javascripts/elementCache.js" defer></script>
+    <script src="javascripts/plantData.js" defer></script>
+    <script src="javascripts/plants.js" defer></script>
+    <script src="javascripts/skillTree.js" defer></script>
+    <script src="javascripts/updateGame.js" defer></script>
+    <script src="javascripts/settingsButtons.js" defer></script>
+   <!-- <script src="javascripts/gameIntro.js" defer></script> -->
+    <script src="javascripts/eventListeners.js" defer></script>
   </main>
 </body>
 </html>
